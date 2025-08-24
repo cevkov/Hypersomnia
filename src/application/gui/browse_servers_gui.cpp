@@ -407,15 +407,9 @@ std::string server_list_entry::get_connect_string() const {
 #else
 	/* Native-to-native case */
 
-	if (is_internal_network()) {
-		return connect_string;
-	}
 
-	if (is_behind_nat()) {
-		return std::string("rtc://") + connect_string;
-	}
-
-	return connect_string;
+	return std::string("rtc://") + connect_string;
+	
 #endif
 }
 
